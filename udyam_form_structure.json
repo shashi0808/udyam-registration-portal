@@ -1,0 +1,228 @@
+{
+  "step1": {
+    "title": "Aadhaar Number & OTP Verification",
+    "description": "Enter your Aadhaar number to receive OTP for verification",
+    "fields": [
+      {
+        "id": "aadhaarNumber",
+        "name": "aadhaarNumber",
+        "type": "text",
+        "label": "Aadhaar Number",
+        "placeholder": "Enter 12-digit Aadhaar Number",
+        "required": true,
+        "maxlength": 12,
+        "pattern": "^[0-9]{12}$",
+        "validation_message": "Please enter a valid 12-digit Aadhaar number"
+      },
+      {
+        "id": "sendOTP",
+        "type": "button",
+        "text": "Send OTP",
+        "action": "send_otp",
+        "className": "btn btn-primary"
+      },
+      {
+        "id": "otpNumber",
+        "name": "otpNumber",
+        "type": "text",
+        "label": "OTP",
+        "placeholder": "Enter 6-digit OTP",
+        "required": true,
+        "maxlength": 6,
+        "pattern": "^[0-9]{6}$",
+        "validation_message": "Please enter a valid 6-digit OTP",
+        "disabled": true
+      },
+      {
+        "id": "verifyOTP",
+        "type": "button",
+        "text": "Verify OTP & Continue",
+        "action": "verify_otp",
+        "className": "btn btn-success",
+        "disabled": true
+      }
+    ]
+  },
+  "step2": {
+    "title": "PAN Details",
+    "description": "Enter your PAN details for business registration",
+    "fields": [
+      {
+        "id": "panNumber",
+        "name": "panNumber",
+        "type": "text",
+        "label": "PAN Number",
+        "placeholder": "Enter PAN Number (e.g., ABCDE1234F)",
+        "required": true,
+        "maxlength": 10,
+        "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$",
+        "validation_message": "Please enter a valid PAN number (5 letters, 4 digits, 1 letter)",
+        "transform": "uppercase"
+      },
+      {
+        "id": "applicantName",
+        "name": "applicantName",
+        "type": "text",
+        "label": "Name as per PAN Card",
+        "placeholder": "Enter full name as mentioned in PAN card",
+        "required": true,
+        "maxlength": 100,
+        "validation_message": "Please enter your name as per PAN card"
+      },
+      {
+        "id": "gender",
+        "name": "gender",
+        "type": "select",
+        "label": "Gender",
+        "required": true,
+        "options": [
+          {
+            "value": "",
+            "text": "Select Gender"
+          },
+          {
+            "value": "male",
+            "text": "Male"
+          },
+          {
+            "value": "female",
+            "text": "Female"
+          },
+          {
+            "value": "other",
+            "text": "Other"
+          }
+        ],
+        "validation_message": "Please select your gender"
+      },
+      {
+        "id": "dateOfBirth",
+        "name": "dateOfBirth",
+        "type": "date",
+        "label": "Date of Birth",
+        "required": true,
+        "validation_message": "Please enter your date of birth"
+      },
+      {
+        "id": "mobileNumber",
+        "name": "mobileNumber",
+        "type": "tel",
+        "label": "Mobile Number",
+        "placeholder": "Enter 10-digit mobile number",
+        "required": true,
+        "maxlength": 10,
+        "pattern": "^[6-9][0-9]{9}$",
+        "validation_message": "Please enter a valid 10-digit mobile number"
+      },
+      {
+        "id": "emailAddress",
+        "name": "emailAddress",
+        "type": "email",
+        "label": "Email Address",
+        "placeholder": "Enter email address",
+        "required": true,
+        "validation_message": "Please enter a valid email address"
+      },
+      {
+        "id": "address",
+        "name": "address",
+        "type": "textarea",
+        "label": "Address",
+        "placeholder": "Enter complete address",
+        "required": true,
+        "rows": 3,
+        "validation_message": "Please enter your address"
+      },
+      {
+        "id": "pinCode",
+        "name": "pinCode",
+        "type": "text",
+        "label": "PIN Code",
+        "placeholder": "Enter 6-digit PIN code",
+        "required": true,
+        "maxlength": 6,
+        "pattern": "^[0-9]{6}$",
+        "validation_message": "Please enter a valid 6-digit PIN code",
+        "autocomplete": "postal-code"
+      },
+      {
+        "id": "city",
+        "name": "city",
+        "type": "text",
+        "label": "City",
+        "placeholder": "City (auto-filled from PIN code)",
+        "required": true,
+        "readonly": true
+      },
+      {
+        "id": "state",
+        "name": "state",
+        "type": "text",
+        "label": "State",
+        "placeholder": "State (auto-filled from PIN code)",
+        "required": true,
+        "readonly": true
+      }
+    ]
+  },
+  "validation_rules": {
+    "aadhaar": {
+      "pattern": "^[0-9]{12}$",
+      "message": "Aadhaar number must be exactly 12 digits"
+    },
+    "pan": {
+      "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$",
+      "message": "PAN must be in format: 5 letters, 4 digits, 1 letter (e.g., ABCDE1234F)"
+    },
+    "otp": {
+      "pattern": "^[0-9]{6}$",
+      "message": "OTP must be exactly 6 digits"
+    },
+    "mobile": {
+      "pattern": "^[6-9][0-9]{9}$",
+      "message": "Mobile number must be 10 digits starting with 6, 7, 8, or 9"
+    },
+    "pincode": {
+      "pattern": "^[0-9]{6}$",
+      "message": "PIN code must be exactly 6 digits"
+    },
+    "email": {
+      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      "message": "Please enter a valid email address"
+    }
+  },
+  "ui_config": {
+    "progress_steps": [
+      {
+        "step": 1,
+        "title": "Aadhaar Verification",
+        "status": "active"
+      },
+      {
+        "step": 2,
+        "title": "PAN Details",
+        "status": "pending"
+      }
+    ],
+    "theme": {
+      "primary_color": "#0066cc",
+      "secondary_color": "#f8f9fa",
+      "success_color": "#28a745",
+      "error_color": "#dc3545",
+      "warning_color": "#ffc107",
+      "info_color": "#17a2b8"
+    },
+    "responsive_breakpoints": {
+      "mobile": "320px",
+      "tablet": "768px",
+      "desktop": "1024px"
+    }
+  },
+  "api_endpoints": {
+    "send_otp": "/api/v1/send-otp",
+    "verify_otp": "/api/v1/verify-otp",
+    "validate_pan": "/api/v1/validate-pan",
+    "submit_form": "/api/v1/submit-registration",
+    "pin_lookup": "/api/v1/pin-lookup"
+  }
+}
