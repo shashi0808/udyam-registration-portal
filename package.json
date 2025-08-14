@@ -2,13 +2,12 @@
   "name": "udyam-registration-portal",
   "version": "1.0.0",
   "description": "Complete Udyam Registration Portal",
-  "main": "backend/dist/index.js",
+  "main": "udyam-registration/package.json",
   "scripts": {
-    "start": "cd backend && npm start",
-    "build": "cd backend && npm run build",
-    "dev": "cd backend && npm run dev",
-    "install-backend": "cd backend && npm install",
-    "install-frontend": "cd udyam-registration && npm install"
+    "build": "cd udyam-registration && npm install && npm run build",
+    "start": "cd udyam-registration && npm start",
+    "dev": "cd udyam-registration && npm run dev",
+    "install": "cd udyam-registration && npm install"
   },
   "engines": {
     "node": ">=18.0.0",
