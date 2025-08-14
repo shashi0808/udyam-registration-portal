@@ -1,0 +1,9 @@
+udyam-registration/
+Dockerfile*
+docker-compose*
+.env.production
+deploy.sh
+nginx*
+ssl/
+*.md
+.git/
