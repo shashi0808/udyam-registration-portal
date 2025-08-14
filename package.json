@@ -1,0 +1,26 @@
+{
+  "name": "udyam-registration-portal",
+  "version": "1.0.0",
+  "description": "Complete Udyam Registration Portal",
+  "main": "backend/dist/index.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "build": "cd backend && npm run build",
+    "dev": "cd backend && npm run dev",
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd udyam-registration && npm install"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "udyam",
+    "registration",
+    "portal",
+    "nextjs",
+    "express"
+  ],
+  "author": "Udyam Team",
+  "license": "MIT"
+}
